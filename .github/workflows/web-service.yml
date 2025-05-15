@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+name: web-service
+on:
+  push:
+    branches: ['*']
+  pull_request:
+    branches: ['*']
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup python
+      run: |
+        pip3 install -r services/web/requirements.txt
+    - name: docker
+      run: |
+        git submodule init
+        git submodule update
+        docker-compose up -d --build
+        docker ps -a
+        sleep 20
+        sh load_data.sh

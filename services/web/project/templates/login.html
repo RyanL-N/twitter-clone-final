@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Login</h2>
+
+{% if bad_credentials %}
+<p style='color:red'>Bad Credentials</p>
+{% endif %}
+
+
+
+<form action="login" method="POST">
+    <p><input type=text name=username placeholder=username>
+    <p><input type=password name=password placeholder=password>
+    <input type=submit value=login>
+</form>
+
+{% endblock %}

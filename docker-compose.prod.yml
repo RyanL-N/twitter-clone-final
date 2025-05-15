@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./services/web
+      dockerfile: Dockerfile.prod
+    command: gunicorn --bind 0.0.0.0:5000 manage:app
+    expose:
+      - 5000
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - postgres
+
+  postgres:
+    build: ./services/postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - $HOME/bigdata/postgres_data_prod1:/var/lib/postgresql/data/
+    ports:
+      - 1319:5432
+
+  nginx:
+    build: ./services/nginx
+    ports:
+      - 1317:80
+    depends_on:
+      - web
+

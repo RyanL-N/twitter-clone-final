@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Create Account</h2>
+
+{% if bad_user %}
+<p style='color:red'>Username not availible</p>
+{% endif %}
+
+{% if bad_pw %}
+<p style='color:red'>Passwords do not match</p>
+{% endif %}
+
+<form action="create_account" method="POST">
+    <p><input type=text name=username placeholder=username>
+    <p><input type=password name=pw1 placeholder='enter password'>
+    <p><input type=password name=pw2 placeholder='re-enter password'>
+    <input type=submit value=create_account>
+</form>
+
+{% endblock %}

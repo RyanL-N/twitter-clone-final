@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to Tweeter</h1>
+
+<body>
+    {% for tweet in tweets %}
+    <div style='margin:30px'>
+        <h4>{{tweet['username']}}</h4>
+        <p>{{tweet['text']}}</p>
+        <p>written at {{tweet['time']}}</p>
+    </div>
+    {% endfor %}
+
+    <p>page: {{page}}</p>
+    {% if page>0 %}
+    <a href="{{url_for('root', page=page-1)}}">prev</a>
+    {% endif %}
+
+    {% if tweets|length == 20%}
+    <a href="{{url_for('root', page=page+1)}}">next</a>
+    {% endif %}
+
+</body>
+
+
+{% endblock %}

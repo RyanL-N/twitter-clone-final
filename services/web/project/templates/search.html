@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Search</h2>
+
+<form action="search" method="GET">
+    <p><input type=text name=search_term>
+    <input type=submit value=&#x1F50D>
+</form>
+
+{% if searched %}
+    {% for tweet in tweets %}
+    <div style='margin:30px'>
+        <h4>{{tweet['username']}}</h4>
+        <p>{{tweet['text']|safe}}</p>
+        <p>written at {{tweet['time']}}</p>
+    </div>
+    {% endfor %}
+    
+    
+    <p>page: {{page}}</p>
+    {% if page>0 %}
+    <a href="{{url_for('search', page=page-1)}}">prev</a>
+    {% endif %}
+
+    {% if tweets|length == 20%}
+    <a href="{{url_for('search', page=page+1)}}">next</a>
+    {% endif %}
+{% endif %}
+
+
+{% endblock %}
