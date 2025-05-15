@@ -1,5 +1,5 @@
 # final project
-[![web-service](https://github.com/RyanL-N/csci143-final/actions/workflows/web-service.yml/badge.svg)](https://github.com/RyanL-N/csci143-final/actions/workflows/web-service.yml)
+[![Tests](https://github.com/RyanL-N/twitter-clone/actions/workflows/test.yml/badge.svg)](https://github.com/RyanL-N/twitter-clone/actions/workflows/test.yml)
 
 ## What this repo does
 Basic Twitter clone to demo nginx, flask, and postgres. \
