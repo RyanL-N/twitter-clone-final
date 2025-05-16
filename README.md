@@ -1,5 +1,5 @@
-# Final Project
-[![Tests](https://github.com/RyanL-N/twitter-clone/actions/workflows/web-service.yml/badge.svg)](https://github.com/RyanL-N/twitter-clone/actions/workflows/web-service.yml)
+#Final Project
+[![Tests](https://github.com/RyanL-N/twitter-clone-final/actions/workflows/web-service.yml/badge.svg)](https://github.com/RyanL-N/twitter-clone-final/actions/workflows/web-service.yml)
 
 
 ## What this repo does
